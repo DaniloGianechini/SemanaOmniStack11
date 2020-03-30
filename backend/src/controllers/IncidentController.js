@@ -34,8 +34,6 @@ module.exports = {
         const ong = request.headers.authorization;
 
         const incidents = await connection('incidents').where('id', id).select('ong').first();
-
-        console.log(ong);
         
         if (incidents.ong != ong) {
             return response.status(401).json({ error: 'Operation not permited.' });
